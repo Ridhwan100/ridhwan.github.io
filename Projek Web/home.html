@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="wrapper">
+            <div class="brand">
+                <div class="firstname">SMPN 40</div>
+                <div class="lastname">JAKARTA</div>
+            </div>
+            <ul class="navigation">
+                <li><a href="home.html">Beranda</a></li>
+                <li><a href="kegiatan.html">kegiatan</a></li>
+                <li><a href="galeri.html">galeri</a></li>
+                <li><a href="tentang.html">tentang</a></li>
+            </ul>
+        </nav>
+        <div class="content-slide">
+            <div class="imgslide fade">
+                <img src="asset/smp40-7.jpg" alt="">                
+            </div>
+
+            <div class="imgslide fade">
+                <img src="asset/smp40-5.jpg" alt="">                
+            </div>
+
+            <div class="imgslide fade">
+                <img src="asset/smp40-6.jpg" alt="">
+            </div>
+
+            <a class="prev" onClick="nextslide(-1)">&#10094;</a>
+            <a class="next" onClick="nextslide(1)">&#10095;</a> 
+        </div>
+
+        <div class="page">
+            <span class="dot" onClick="dotslide(1)"></span>
+            <span class="dot" onClick="dotslide(2)"></span>
+            <span class="dot" onClick="dotslide(3)"></span>
+        </div>
+    </div>
+    
+    <div class="about">
+        <div class="logo1">
+            <img src="asset/smp40-3.jpg" alt="">
+        </div>
+        <div class="text">
+            <h1>Selamat Datang</h1>
+            <p>Selamat datang di Sekolah Menengah Pertama Negeri 40 Jakarta. Kami merasa terhormat dapat memiliki Anda sebagai siswa baru di sekolah kami. Kami yakin bahwa Anda akan merasa nyaman dan mendapatkan banyak manfaat dari kegiatan belajar mengajar di sekolah ini.
+                <br><br>
+                Kami berharap Anda akan menikmati tahun-tahun Anda di sekolah kami dan memanfaatkan semua peluang yang tersedia untuk belajar dan tumbuh sebagai individu. Kami sangat senang untuk memiliki Anda di sini dan kami berharap Anda dapat menjadi bagian dari keluarga sekolah kami.
+            </p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <h3>SMPN 40 JAKARTA</h3>
+            <p>Jl. Danau Limboto, Pejompongan, Tanah Abang, Jakarta Pusat, 10210 <br> Telp. (021) 573 7815, E-Mail : smpn.40jakarta@gmail.com</p>
+            <ul class="socials">
+                <li><a href="https://id-id.facebook.com/SMPN40JAKARTA/"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/smpn40jakarta_/?hl=id"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="https://twitter.com/smpn40jkt"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCh3CqiuHLypUstCnMlS9OwA?app=desktop"><i class="fa fa-youtube"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy;2022 SMPN 40 JAKARTA</p>
+        </div>
+    </footer>
+    <script>
+        var slideIndex = 1;
+            showSlide(slideIndex);
+
+        function nextslide(n){
+            showSlide(slideIndex += n);
+        }
+
+        function dotslide(n){
+            showSlide(slideIndex = n);
+        }
+
+        function showSlide(n) {
+            var i;
+            var slides = document.getElementsByClassName("imgslide");
+            var dot = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            for (i = 0; i < slides.length; i++) {
+                
+                slides[i].style.display = "none";
+            }
+
+            for (i = 0; i < slides.length; i++) {
+                
+                dot[i].className = dot[i].className.replace(" active", "");
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+
+            dot[slideIndex - 1].className += " active";
+        }
+    </script>
+</body>
+</html>
